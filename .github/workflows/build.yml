@@ -43,5 +43,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"guinohenostroza_PartsUnlimited-aspnet45" /o:"guinohenostroza" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build
+          msbuild PartsUnlimited.sln /t:Clean;Rebuild;
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
